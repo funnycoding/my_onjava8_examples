@@ -19,7 +19,7 @@
 
 [13.函数式编程](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/13.%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.md)
 
-[14.流式编程(1) 流创建](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/14.流式编程(1) 流创建.md)
+[14.流式编程(1) 流创建]([https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/14.%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B(1)%20%E6%B5%81%E5%88%9B%E5%BB%BA.md](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/14.流式编程(1) 流创建.md))
 
 [14.流式编程(2)—中间操作](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/14.流式编程(2)—中间操作.md)
 
