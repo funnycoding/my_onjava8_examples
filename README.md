@@ -19,13 +19,13 @@
 
 [13.函数式编程](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/13.%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.md)
 
-[14.流式编程(1) 流创建]([https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/14.%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B(1)%20%E6%B5%81%E5%88%9B%E5%BB%BA.md](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/14.流式编程(1) 流创建.md))
+[14.流式编程(1) 流创建](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/14.%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B(1)%20%E6%B5%81%E5%88%9B%E5%BB%BA.md)
 
-[14.流式编程(2)—中间操作](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/14.流式编程(2)—中间操作.md)
+[14.流式编程(2)—中间操作](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/14.%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B(2)%E2%80%94%E4%B8%AD%E9%97%B4%E6%93%8D%E4%BD%9C.md)
 
-[14.流式编程（3）— Optional类](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/14.流式编程（3）— Optional类.md)
+[14.流式编程（3）— Optional类](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/14.%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B%EF%BC%883%EF%BC%89%E2%80%94%20Optional%E7%B1%BB.md)
 
-[14.流式编程（4）— 终端操作](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/14.流式编程（4）— 终端操作.md)
+[14.流式编程（4）— 终端操作](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/14.%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B%EF%BC%884%EF%BC%89%E2%80%94%20%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C.md)
 
 [15.异常(1)](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/15.异常(1).md)
 
