@@ -56,10 +56,7 @@ interface Storm {
 
 
 public class StormyInning extends Inning implements Storm {
-    // OK to add new exceptions for constructors, but you
-// must deal with the base constructor exceptions:
-
-
+    // 子类的构造器可以抛出新的异常类型，但是必须包含父类构造器所抛出的异常
     StormyInning() throws BaseballException, RainedOut {
     }
 
@@ -67,18 +64,16 @@ public class StormyInning extends Inning implements Storm {
             throws BaseballException {
     }
 
-    // Regular methods must conform to base class:
-//- void walk() throws PopFoul {} //Compile error
-// Interface CANNOT add exceptions to existing
-// methods from the base class:
-//- public void event() throws RainedOut {}
-// If the method doesn't already exist in the
-// base class, the exception is OK:
-
+    // 普通方法必须符合基类的异常
+    //public void walk() throws PopFoul {} // 这里覆写基类的 walk() 方法，但是基类没有抛出异常，则子类不能抛出异常，否则编译器会父类并没有抛出该异常
+    // 接口不能向基类的现有方法中方法添加异常：
+    // 这里接口和父类中都包含 event 方法，接口抛出 RainedOut 异常，而父类没有，所以子类不能抛出 RainedOut异常
+    // 这里 event 在子类中不能抛出任何异常，因为基类和接口中抛出的异常不一致
     @Override
     public void event() {
     }
-    // 这样写会导致编译异常，因为父类中只抛出了 BaseballException
+
+
 
     @Override
     public void atBat() throws PopFoul {
@@ -104,13 +99,10 @@ public class StormyInning extends Inning implements Storm {
             System.out.println("Generic Baseball Exception");
         }
 
-        // Strike not thrown in derived version.
         try {
-// What happens if you upcast?
+            // 当多态发生时，需要补货具体对象构造时可能抛出的异常
             Inning i = new StormyInning();
             i.atBat();
-// You must catch the exceptions from the
-// base-class version of the method:
         } catch (Strike e) {
             System.out.println("Strike");
         } catch (Foul e) {
