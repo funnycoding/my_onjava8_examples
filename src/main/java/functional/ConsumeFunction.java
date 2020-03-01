@@ -16,27 +16,34 @@ class One {
 class Two {
 }
 
+// 我自己又加了个根据方法引用生成 Two 的
+class Three {
+    static Two test(One o) {
+        return new Two();
+    }
+}
+
 public class ConsumeFunction {
+    // 入参是一个两个参数的Function，根据参数位置可以看到入参是One，返回值是 Two，与这个方法的返回值一致。
     static Two consume(Function<One, Two> oneTwo) {
-        System.out.println("Twos Consume was invoked");
-        // 这里其实让我看的挺别扭的，方法的返回值是 Two ，这里 apply的入参却是 One 的实例
-        // 不过 apply() 函数的定义是 返回R ，也就是 Two
-        // 看懂了，这里的 oneTwo 也就是入参 等价于   Function<One, Two> f = one -> new Two();
-        // 调用 f.apply(new One) 也就等于下面 oneTwo.apply(new One());
+        System.out.println("入参是 Function，根据 Function.apply 返回 Two对象的方法被调用了");
         return oneTwo.apply(new One());
     }
 
     public static void main(String[] args) {
-        // 这里 consume 函数的入参是一个 Function 这里的入参是一个 Lambda 表达式
-        //与下面那句效果相同
+        // 实现与 consume 相同效果的 Lambda 表达式
         Function<One, Two> f = one -> new Two();
         //  f.apply(new One) 直接可以生成一个 Two 的实例
         Two apply = f.apply(new One());
-        System.out.println(apply);
+        System.out.println("使用Lambda表达式生成的对象：" + apply);
 
         Two consume = consume(f);
-        System.out.println(consume);
+        System.out.println("使用 Consume 生成的对象：" + consume);
 
         Two two = consume(one -> new Two());
+        System.out.println("将Lambda表达式传入 consume 生成的对象: " + two);
+
+        // 把 Three类的test方法赋值给 Function，传入consume，也可以生成 Two 对象
+        Two three = consume(Three::test);
     }
 }

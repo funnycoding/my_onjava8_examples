@@ -9,14 +9,26 @@ package functional;
 
 // RecursiveFibonacci.java
 public class RecursiveFibonacci {
-    // 算法接口引用
+    // 入参是int,出参也是int的函数式接口。
     IntCall fib;
 
-    // 将生成斐波那契数列的算法放在构造函数中，生成类的同时也生成了算法的实例对象
+    // 类的构造函数，使用 Lambda 表达式实现 IntCall 的call()函数
     public RecursiveFibonacci() {
-        fib = n -> n == 0 ? 0 :
+     /*   fib = n -> n == 0 ? 0 :
                 n == 1 ? 1 :
-                        fib.call(n - 1) + fib.call(n - 2);
+                        fib.call(n - 1) + fib.call(n - 2);*/
+
+        // if - else 版 斐波那契数列生成函数
+        fib = n -> {
+            if (n == 0) {
+                return 0;
+            } else if (n == 1) {
+                return 1;
+            } else {
+                return fib.call(n - 1) + fib.call(n - 2);
+            }
+        };
+
     }
 
     // 调用生成斐波那契数列的函数 ，这层封装只是为了更强的语义性，直接调用 fib.call 也是一样的效果

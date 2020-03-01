@@ -38,7 +38,7 @@ public class ClassFunctionals {
     }
 
     static void f3(AA aa) {
-
+        System.out.println("f3被调用了");
     }
 
     static void f4(AA aa, BB bb) {
@@ -46,6 +46,7 @@ public class ClassFunctionals {
     }
 
     static CC f5(AA aa) {
+        System.out.println("f5被调用了，入参AA，返回值CC");
         return new CC();
     }
 
@@ -69,14 +70,16 @@ public class ClassFunctionals {
         return new AA();
     }
     // 这10个方法基本是这几个类作为参数来回换
-
     public static void main(String[] args) {
+        // 返回对应AA类型 Supplier
         Supplier<AA> s = ClassFunctionals::f1;
         s.get(); // x相当于调用 AA的 f1函数，创建一个 AA 对象
         Comparator<AA> comparator = ClassFunctionals::f2;
         comparator.compare(new AA(), new AA());
 
+        // 将f3赋值给参数类型为AA的Consumer接口
         Consumer<AA> cons = ClassFunctionals::f3;
+        // 调用对应的 accept方法
         cons.accept(new AA());
 
         BiConsumer<AA, BB> bicons = ClassFunctionals::f4;

@@ -10,25 +10,10 @@ import java.util.StringJoiner;
  */
 
 //CtorReference.java
-// 这里我同样将接口放在了对应赋值方法的上面，我觉得更直观
-
-interface MakeNoArgs {
-    Dog make();
-}
-
-interface Make1Args {
-    Dog make(String name);
-}
-
-interface Make2Args {
-    Dog make(String nm, int age);
-}
-
-
 // 三个构造函数对应上面的三个接口
 class Dog {
     String name;
-    int age = -1; // 未初始化 Unknow
+    int age = -1;
 
 
     public Dog() {
@@ -53,6 +38,19 @@ class Dog {
     }
 }
 
+// 三个接口都是构造 Dog 实例的方法 对应 dog 的三个构造函数
+interface MakeNoArgs {
+    Dog make();
+}
+
+interface Make1Args {
+    Dog make(String name);
+}
+
+interface Make2Args {
+    Dog make(String nm, int age);
+}
+
 
 public class CtorReference {
     public static void main(String[] args) {
@@ -70,9 +68,5 @@ public class CtorReference {
         System.out.println(dn);
         System.out.println(d1);
         System.out.println(d2);
-        System.out.println("!");
-        Runnable r = System.out::println;
-        r.run(); // r.run() 调用的就是 sout 函数
-        System.out.println("2");
     }
 }

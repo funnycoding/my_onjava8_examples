@@ -24,19 +24,19 @@ interface Multi {
 
 public class LambdaExpressions {
 
-    // 两个单参数的 Lambda 表达式， 单个参数的表达式 入参可以括起来也可以不括
+    // 两个单参数的 Lambda 表达式，对应接口Body。 单个参数的表达式 入参可以括起来也可以不括
     static Body bod = h -> h + " No Parens!";
     static Body bod2 = (h) -> h + "More Details";
 
-    // 无参 Lambda 表达式
+    // 无参 Lambda 表达式 对应接口 Description
     static Description desc = () -> "Short info";
-
+    // 无参 Lambda 表达式，多行方法体的时候需要用花括号括起来
     static Description moreLines = () -> {
-        System.out.println("moreLines");
-        return "frome morelines";
+        System.out.println("More Lines");
+        return "from MoreLines";
     };
 
-    // 双参数接口 Lambda 表达式
+    // 双参数接口 Lambda 表达式 对应接口 Multi
     static Multi multi = (h, n) -> h + n;
 
 

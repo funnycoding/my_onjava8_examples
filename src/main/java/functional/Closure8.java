@@ -13,6 +13,7 @@ import java.util.function.Supplier;
 
 public class Closure8 {
     Supplier<List<Integer>> makeFun() {
+        // 每次调用 makeFun 返回的都是新的内含一个参数 "1"的不可变的 ArrayList
         final List<Integer> list = new ArrayList<>();
         list.add(1);
         return () -> list;

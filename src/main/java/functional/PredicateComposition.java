@@ -9,7 +9,7 @@ import java.util.stream.Stream;
  * @description
  * @date 2020/2/18 5:09 下午
  */
-
+// PredicateComposition.java
 public class PredicateComposition {
     static Predicate<String>
             p1 = s -> s.contains("bar"),

@@ -27,6 +27,7 @@ class Foo {
 }
 
 class Bar {
+    // 持有一个Foo对象引用
     Foo f;
 
     public Bar(Foo f) {
@@ -36,7 +37,6 @@ class Bar {
 
 class IBaz {
     int i;
-
     public IBaz(int i) {
         this.i = i;
     }
@@ -61,24 +61,24 @@ class DBaz {
 
 public class FunctionVariants {
     // 使用内置接口，这里 Bar/ IBaz / LBaz / DBaz 与对应接口的函数方法签名和返回值一致
-    static Function<Foo, Bar> f1 = f -> new Bar(f);
-    static IntFunction<IBaz> f2 = i -> new IBaz(i);
+    static Function<Foo, Bar> f1 = f -> new Bar(f); // 传入一个 f 返回一个 Bar 符合 Function 的 apply() 函数
+    static IntFunction<IBaz> f2 = i -> new IBaz(i); // 返回和入参相同类型的方法 apply()
     static LongFunction<LBaz> f3 = l -> new LBaz(l);
     static DoubleFunction<DBaz> f4 = d -> new DBaz(d);
 
-    static ToIntFunction<IBaz> f5 = ib -> ib.i;
-    static ToLongFunction<LBaz> f6 = lb -> lb.l;
-    static ToDoubleFunction<DBaz> f7 = db -> db.d;
+    static ToIntFunction<IBaz> f5 = ib -> ib.i; // 返回 int
+    static ToLongFunction<LBaz> f6 = lb -> lb.l; // 返回 long
+    static ToDoubleFunction<DBaz> f7 = db -> db.d; // 返回 double
 
-    static IntToLongFunction f8 = i -> i;
-    static IntToDoubleFunction f9 = i -> i;
-    static LongToIntFunction f10 = l -> (int) l;
-    static LongToDoubleFunction f11 = l -> l;
-    static DoubleToIntFunction f12 = d -> (int) d;
-    static DoubleToLongFunction f13 = d -> (long) d;
+    static IntToLongFunction f8 = i -> i; // 入参 int 出参 long 入参类型比出参小，不用进行数据类型强转
+    static IntToDoubleFunction f9 = i -> i;  // 入参 int 出参 double 入参类型比出参小，不用进行数据类型强转
+    static LongToIntFunction f10 = l -> (int) l; // Long 转 int ，因为出参类型比入参小，需要在方法中进行强转
+    static LongToDoubleFunction f11 = l -> l;  // Long 转 double ，不用进行数据类型强转
+    static DoubleToIntFunction f12 = d -> (int) d; // double 转 int ，向下转换，需要强转
+    static DoubleToLongFunction f13 = d -> (long) d; // double 转 long，强转
 
     public static void main(String[] args) {
-        // 这是生成 Bar 对象的方法么，不太看得懂，这个 apply 是干啥的，得看源码
+        // Function 的 apply() 函数就是 根据入参生成出参两种类型变量。 这里就是根据 Foo对象构造 Bar对象
         Bar b = f1.apply(new Foo());
         // 对象的构建，根据对应的入参
         IBaz ib = f2.apply(11);

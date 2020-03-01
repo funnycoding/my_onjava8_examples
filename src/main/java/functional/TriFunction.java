@@ -7,6 +7,7 @@ package functional;
  * @date 2020/2/18 2:14 下午
  */
 
+// 自定义的函数式接口
 @FunctionalInterface
 public interface TriFunction<T, U, V, R> {
     R apply(T t, U u, V v);

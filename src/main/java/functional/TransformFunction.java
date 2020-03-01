@@ -32,7 +32,7 @@ class O {
 public class TransformFunction {
     // 这个方法的入参也是一个 Function 可以看做是一个函数 一种行为
     // 入参是一种行为 返回值也是一种行为，消费行为，生成行为
-    // 这里我觉得如果刚开始看不太明白的话，直接通过IDE的功能将 lambda 展开为 匿名内部类 就会看得非常请相互了
+    // 这里我觉得如果刚开始看不太明白的话，直接通过IDE的功能将 lambda 展开为 匿名内部类 就会看得非常清楚了
     // 这里实现了一个 Function 的匿名内部类，类中的 apply 方法 打印入参 然后不做处理直接返回
 
     /**
@@ -52,65 +52,39 @@ public class TransformFunction {
     // 然后在看一下 andThen 函数的定义
     static Function<I, O> transform(Function<I, O> in) {
         System.out.println("transform 被调用了");
-        return in.andThen(new Function<O, O>() {
-            @Override
-            public O apply(O o) {
-                System.out.println("apply被调用才进来的");
-                System.out.println(o + "ppp");
-                return o;
-            }
-        });
-    }
-
-    static MyFuncTest<I, O> transform2(MyFuncTest<I, O> in) {
-        System.out.println("transform 被调用了");
         return in.andThen(o -> {
-            System.out.println("apply被调用才进来的");
-            System.out.println(o+"ppp");
+            System.out.println("transform 被调用才进来的");
+            System.out.println("当前对象："+o + "apply()");
             return o;
         });
     }
+
+
     public static void main(String[] args) {
-        // 这里我将一步拆为两步 我觉得更直观一些
-        // 首先 入参是 i， 返回的是 O 对象，同时打印i  但是这里的返回值 是 Function，方法体内返回的是 O 对象 这是怎样对应上的？
-     /*   Function<I, O> ioFunction = // 为什么这个返回这个对象 或者说调用 O 的构造函数，toString 方法被调用了
-                TransformFunction::apply;
-
-        System.out.println(ioFunction.apply(new I()));
-        System.out.println("-------------");
-        // 消费行为，产生行为
-        Function<I, O> f2 = transform(ioFunction);
-        System.out.println("-------------");
-        // 如果不调用 apply 方法， transform 是不会被调用的
-        I t = new I();
-        System.out.println("apply----------");
-        f2.apply(t);*/
-
-        MyFuncTest<I, O> ioFunction = // 为什么这个返回这个对象 或者说调用 O 的构造函数，toString 方法被调用了
-                new MyFuncTest<I, O>() {
-                    @Override
-                    public O apply(I i) {
-                        return myApply(i);
-                    }
-                };
-
+        System.out.println("第一个方法引用:myApply");
+        Function<I, O> ioFunction = // 这里使用我自己实现的 apply方法赋值给 Function
+                TransformFunction::myApply;
+        System.out.println("开始调用 transform(), 入参是一个 Lambda 表达式， 该表达式的入参是 i，输出i，返回 O");
         Function<I,O> f2 = transform(i -> {
             System.out.println(i);
             return new O();
         });
+        f2.apply(new I());
+        System.out.println("transform 调用结束");
 
-        // 原来打印的 O 是 ioFunction.apply(new I()) 生成的 O 对象 我操了
-        System.out.println(ioFunction.apply(new I()));
+        System.out.println("开始调用 iOFunction 的 apply()"); // 这里实际调用的是我下面定义的 myApply()函数
+        System.out.println(ioFunction.apply(new I())); // 这里打印出来的 OOO 是 ioFunction.apply(new I()) 这里生成的对象 O
         System.out.println("-------------");
     }
 
     private static O myApply(I i) {
         System.out.println("这里是打印i的上一行");
-        System.out.println(i);
+        System.out.println("打印I: " + i );
         System.out.println("这里是return O 的上一行");
         // 为什么这个返回这个对象 或者说调用 O 的构造函数，toString 方法被调用了
+        System.out.println("开始构造 O 对象");
         O o = new O();
-        System.out.println("构造O"+o);
+        System.out.println("打印O对象 "+o);
         return o;
     }
 }

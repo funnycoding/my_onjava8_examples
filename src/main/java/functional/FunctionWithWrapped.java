@@ -11,8 +11,7 @@ import java.util.function.IntToDoubleFunction;
  * @date 2020/2/18 2:39 下午
  */
 // FunctionWithWrapped.java
-// 这里涉及到基本类型强转
-// 当返回值的精度小于入参的时候需要进行强转
+// 当使用 Function 的时候，涉及到对象的装箱和拆箱，这时候选择使用对应的专门类型可以省略这个步骤，提高效率
 public class FunctionWithWrapped {
     public static double returnD(int i) {
         return i;
@@ -24,10 +23,10 @@ public class FunctionWithWrapped {
 
 
     public static void main(String[] args) {
+        // 这里使用 Function接口的话，实现的时候需要进行显示的类型强转
         Function<Integer, Double> fid = i -> (double) i;
-
+        // 使用专门的转换类就不需要
         IntToDoubleFunction fid2 = i -> i;
-        IntToDoubleFunction fid3 = i -> (double) i;
 
         // 这里我加了个 使用 double 转 int的内置函数接口，把 returnI 也用上了
         DoubleToIntFunction d = FunctionWithWrapped::returnI;
