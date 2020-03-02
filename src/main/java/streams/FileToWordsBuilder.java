@@ -48,7 +48,7 @@ public class FileToWordsBuilder {
         fileToWordsBuilder.addToBuilder("手动添加一哈");
         Stream<String> stream = fileToWordsBuilder
                 .stream();
-        fileToWordsBuilder.addToBuilder("当Builder 已经被构建时再调用 add()会导致异常");
+        //fileToWordsBuilder.addToBuilder("Builder被构建为 Stream之后再添加点元素进去"); // 当Builder 已经被构建时再调用 add()会导致异常
         stream
                 .map(w -> w + " ")
                 .forEach(System.out::print);

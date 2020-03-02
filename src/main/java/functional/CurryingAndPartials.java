@@ -8,7 +8,7 @@ import java.util.function.Function;
  * @description
  * @date 2020/2/18 5:24 下午
  */
-
+// CurryingAndPartials.java
 public class CurryingAndPartials {
     // 未柯里化的函数，有多个入参
     static String uncurried(String a, String b) {
@@ -16,13 +16,16 @@ public class CurryingAndPartials {
     }
 
     public static void main(String[] args) {
+
         // 柯里化函数
         Function<String, Function<String, String>> sum =
-                a -> b -> a + b; //[1]
-        System.out.println(uncurried("HI ","Ho"));
+                a -> b -> a + b; //[1] a 的入参是一个函数b。 b 是一个 返回 a+b 的函数
+
+        System.out.println("uncurried:" + uncurried("HI ", "Ho"));
 
         Function<String, String> hi = sum.apply("HI "); //[2]
-        System.out.println(hi.apply("Ho"));
+        String ho = hi.apply("Ho");
+        System.out.println("sum.apply:" + ho);
 
         // 部分应用
         Function<String, String> sumHi = sum.apply("Hup ");

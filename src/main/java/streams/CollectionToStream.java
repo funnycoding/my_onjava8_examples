@@ -16,6 +16,7 @@ import java.util.Set;
 public class CollectionToStream {
     public static void main(String[] args) {
 
+        // 构造一个 Bubbles List
         List<Bubble> bubbles = Arrays.asList(new Bubble(1), new Bubble(2), new Bubble(3));
         // 将 List 转为流，然后将 bubble 中的 i 求和 这里 i 分别是 1/2/3
         System.out.println(bubbles.stream()

@@ -22,9 +22,10 @@ public class RandomWords implements Supplier<String> {
     List<String> words = new ArrayList<>();
     Random rand = new Random(47);
 
-    RandomWords(String fname) throws IOException {
+    RandomWords(String fileName) throws IOException {
         // 读取传入文件路径的所有内容
-        List<String> lines = Files.readAllLines(Paths.get(fname));
+        // 这里Paths 路径获取文件中的文件必须在 Parents 文件夹下面，否则只能根据绝对路径查找对应的文件
+        List<String> lines = Files.readAllLines(Paths.get(fileName));
 
         // 略过第一行
         for (String line : lines.subList(1, lines.size())) {
@@ -42,7 +43,7 @@ public class RandomWords implements Supplier<String> {
 
     @Override
     public String toString() {
-        return words.stream().collect(Collectors.joining(" "));
+        return words.stream().collect(Collectors.joining("  "));
     }
 
     public static void main(String[] args) throws IOException {

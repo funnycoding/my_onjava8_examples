@@ -19,14 +19,14 @@ public class Ranges {
         }
         System.out.println(result);
 
-        // for-in 循环
+        // for-in  遍历流生成的数组
         result = 0;
         for (int i : IntStream.range(10, 20).toArray()) {
             result += i;
         }
         System.out.println(result);
 
-        // 使用流
+        // 使用流直接进行计算
         System.out.println(IntStream.range(10,20).sum());
     }
 }

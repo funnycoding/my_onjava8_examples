@@ -14,7 +14,6 @@ public class StreamOf {
     public static void main(String[] args) {
 
         // 这里有三个将传入元素转为流的例子
-
         Stream.of(new Bubble(1),
                 new Bubble(2),
                 new Bubble(3))

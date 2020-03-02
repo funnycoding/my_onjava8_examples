@@ -18,6 +18,7 @@ public class Generator implements Supplier<String> {
     int i = 0;
 
     // 这个 get 是在什么时候被调用的呢？
+    @Override
     public String get() {
         System.out.println("get 被调用了" + i);
         i++;
