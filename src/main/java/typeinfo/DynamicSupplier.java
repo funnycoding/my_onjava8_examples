@@ -15,7 +15,6 @@ class CountedInteger {
     private final long id = counter++;
 
     public CountedInteger() {
-        System.out.println("Counted Integer无参构造函数被调用了 , Id: " + id);
     }
 
     @Override
@@ -42,8 +41,9 @@ public class DynamicSupplier<T> implements Supplier<T> {
     }
 
     public static void main(String[] args) {
+        // 这里 Class的类型参数是 CountedInteger
         Stream.generate(new DynamicSupplier<>(CountedInteger.class))
-                .skip(10) // 这里skip 是包含的，跳过10个，包含第10个
+                .skip(10)  // 跳过前10个对象 0 -9
                 .limit(5)
                 .forEach(System.out::println);
     }
