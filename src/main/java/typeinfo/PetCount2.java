@@ -1,6 +1,5 @@
 package typeinfo;
 
-import typeinfo.PetCount;
 import typeinfo.pets.Pets;
 
 /**

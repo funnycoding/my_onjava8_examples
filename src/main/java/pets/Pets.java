@@ -11,18 +11,18 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class Pets {
-    public static final PetCreator CREATOR =
-            new LiteralPetCreator();
+    public static final PetCreator CREATOR = new LiteralPetCreator();
 
     public static Pet get() {
+        // 随机获取一个 Pet
         return CREATOR.get();
     }
 
     public static Pet[] array(int size) {
         Pet[] result = new Pet[size];
-      for (int i = 0; i < size; i++) {
-        result[i] = CREATOR.get();
-      }
+        for (int i = 0; i < size; i++) {
+            result[i] = CREATOR.get();
+        }
         return result;
     }
 

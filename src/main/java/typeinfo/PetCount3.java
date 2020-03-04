@@ -14,7 +14,7 @@ import utils.Pair;
  * @description
  * @date 2020/2/29 2:17 下午
  */
-
+// PetCount3.java
 public class PetCount3 {
     static class Counter extends LinkedHashMap<Class<? extends Pet>, Integer> {
         Counter() {
@@ -26,8 +26,8 @@ public class PetCount3 {
         public void count(Pet pet) {
             // Class.isInstance() 替代 instanceof
             entrySet().stream()
-                    .filter(pair -> pair.getKey().isInstance(pet))
-                    .forEach(pair -> put(pair.getKey(), pair.getValue()));
+                    .filter(pair -> pair.getKey().isInstance(pet)) // 判断类型是否相同
+                    .forEach(pair -> put(pair.getKey(), pair.getValue() + 1));
         }
 
         @Override
@@ -45,7 +45,9 @@ public class PetCount3 {
                     .limit(20)
                     .peek(petCount::count)
                     .forEach(p -> System.out.print(p.getClass().getSimpleName() + " "));
-            System.out.println("n" + petCount);
+            System.out.println();
+            System.out.println("------------");
+            System.out.println( petCount);
         }
     }
 }
