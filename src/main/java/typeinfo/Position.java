@@ -33,7 +33,7 @@ public class Position {
 
 
     // 如果设置Title的时候传入的值为null则抛出对应异常
-    private void setTitle(String newTitle) {
+    public void setTitle(String newTitle) {
         title = Optional.ofNullable(newTitle).orElseThrow(EmptyTitleException::new);
     }
 
@@ -42,7 +42,7 @@ public class Position {
     }
 
     // 如果传入的员工为null则在方法中重新构造一个Person对象
-    private void setPerson(Person newPerson) {
+    public  void setPerson(Person newPerson) {
         person = Optional.ofNullable(newPerson).orElse(new Person());
     }
 
