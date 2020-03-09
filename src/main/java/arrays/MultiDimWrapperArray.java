@@ -10,6 +10,9 @@ import java.util.Arrays;
  */
 // MultiDimWrapperArray.java
 public class MultiDimWrapperArray {
+    public MultiDimWrapperArray() {
+    }
+
     public static void main(String[] args) {
         Integer[][] a1 = { // 自动装箱
                 {1, 2, 3},

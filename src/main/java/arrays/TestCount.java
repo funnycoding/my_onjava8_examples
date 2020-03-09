@@ -13,7 +13,7 @@ import onjava.Count;
  * @description
  * @date 2020/3/8 11:10 下午
  */
-
+// 不太理解这个例子是要干啥的
 public class TestCount {
     static final int SZ = 5;
 
