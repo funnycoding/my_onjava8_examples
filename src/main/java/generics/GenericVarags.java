@@ -14,7 +14,7 @@ public class GenericVarags {
 
 
     @SafeVarargs
-    public static <T> List<T> makeList(T... args) {
+    public static <T> List<T> makeList(T... args) { // 可以传入数量不定的参数
         ArrayList<T> result = new ArrayList<>();
 
         for (T item : args) {

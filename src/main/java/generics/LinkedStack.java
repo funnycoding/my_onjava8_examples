@@ -9,6 +9,14 @@ package generics;
 
 // LinkedStack.java
 public class LinkedStack<T> {
+    public static <T> void show(T t) {
+        System.out.println(t);
+    }
+
+    public void show2(T t) {
+        System.out.println(t);
+    }
+
     // 再搞一个私有静态内部类 代表节点
     private static class Node<U> {
         U item;

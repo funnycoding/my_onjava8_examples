@@ -16,7 +16,7 @@ public class GenericMethods {
 
     public static void main(String[] args) {
         GenericMethods gc = new GenericMethods();
-        gc.f("");
+        gc.<String>f("");
         gc.f(1);
         gc.f(1.0);
         gc.f('c');
