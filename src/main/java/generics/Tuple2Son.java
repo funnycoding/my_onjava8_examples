@@ -1,6 +1,8 @@
 package generics;
 
 
+import onjava.Tuple2;
+
 /**
  * @author XuYanXin
  * @program OnJava8_Example

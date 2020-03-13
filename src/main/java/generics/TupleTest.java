@@ -1,5 +1,10 @@
 package generics;
 
+import onjava.Tuple2;
+import onjava.Tuple3;
+import onjava.Tuple4;
+import onjava.Tuple5;
+
 /**
  * @author XuYanXin
  * @program OnJava8_Example
