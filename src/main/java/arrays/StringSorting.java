@@ -4,7 +4,7 @@ import static arrays.ArrayShow.show;
 
 import java.util.Arrays;
 import java.util.Collections;
-import onjava.Rand;
+import onjava.Rand.StringGen;
 
 /**
  * @author XuYanXin
@@ -15,7 +15,7 @@ import onjava.Rand;
 // arrays/StringSorting.java
 public class StringSorting {
     public static void main(String[] args) {
-        String[] sa = new Rand.String().array(20);
+        String[] sa = new StringGen().array(20);
         show("排序之前", sa);
 
         Arrays.sort(sa);

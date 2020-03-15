@@ -4,6 +4,7 @@ import java.util.Arrays;
 import onjava.ConvertTo;
 import onjava.Rand;
 import onjava.Rand.Pfloat;
+import onjava.Rand.StringGen;
 
 /**
  * @author XuYanXin
@@ -14,7 +15,7 @@ import onjava.Rand.Pfloat;
 // StreamFromArray.java
 public class StreamFromArray {
     public static void main(String[] args) {
-        String[] s = new Rand.String().array(10);
+        String[] s = new StringGen().array(10);
 
         Arrays.stream(s)
                 .skip(3)

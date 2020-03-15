@@ -284,15 +284,15 @@ public interface Rand {
         }
     }
 
-    class String
+    class StringGen
             implements Supplier<java.lang.String> {
         SplittableRandom r = new SplittableRandom(47);
         private int strlen = 7; // Default length
 
-        public String() {
+        public StringGen() {
         }
 
-        public String(int strLength) {
+        public StringGen(int strLength) {
             strlen = strLength;
         }
 

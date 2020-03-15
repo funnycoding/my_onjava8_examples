@@ -3,7 +3,7 @@ package arrays;
 import static arrays.ArrayShow.show;
 
 import java.util.Arrays;
-import onjava.Rand;
+import onjava.Rand.StringGen;
 
 /**
  * @author XuYanXin
@@ -15,7 +15,7 @@ import onjava.Rand;
 public class ParallelPrefix2 {
     public static void main(String[] args) {
         // 生成8个长度为1个的数组
-        String[] strings=new Rand.String(1).array(8);
+        String[] strings=new StringGen(1).array(8);
         show(strings);
         // 元素相加
         Arrays.parallelPrefix(strings,(a,b) -> a + b);

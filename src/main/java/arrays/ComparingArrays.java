@@ -2,7 +2,7 @@ package arrays;
 
 import java.util.Arrays;
 import onjava.Count;
-import onjava.Rand;
+import onjava.Rand.StringGen;
 
 /**
  * @author XuYanXin
@@ -20,7 +20,7 @@ public class ComparingArrays {
         String[][] md = new String[5][];
         Arrays.setAll(md, n -> new String[n]);
         for (int i = 0; i < md.length; i++) {
-            Arrays.setAll(md[i], new Rand.String()::get);
+            Arrays.setAll(md[i], new StringGen()::get);
         }
         return md;
     }

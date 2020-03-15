@@ -3,7 +3,7 @@ package arrays;
 import static arrays.ArrayShow.show;
 
 import java.util.Arrays;
-import onjava.Rand;
+import onjava.Rand.StringGen;
 
 /**
  * @author XuYanXin
@@ -14,7 +14,7 @@ import onjava.Rand;
 // arrays/AlphabeticSearch.java
 public class AlphabeticSearch {
     public static void main(String[] args) {
-        String[] sa = new Rand.String().array(30);
+        String[] sa = new StringGen().array(30);
         Arrays.sort(sa,String.CASE_INSENSITIVE_ORDER);
         show(sa);
         int index = Arrays.binarySearch(sa, sa[10], String.CASE_INSENSITIVE_ORDER);
