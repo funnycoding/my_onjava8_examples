@@ -12,7 +12,7 @@ import java.util.function.IntSupplier;
 public class Closure7 {
     IntSupplier makeFun(int x) {
         Integer i = 0;
-
+        //i = i + 1; // Integer 的值不能改变
         return () -> x + i;
     }
 }

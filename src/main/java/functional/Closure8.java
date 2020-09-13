@@ -10,10 +10,10 @@ import java.util.function.Supplier;
  * @description
  * @date 2020/2/18 4:21 下午
  */
-
+// functional/Closure8.java
 public class Closure8 {
     Supplier<List<Integer>> makeFun() {
-        // 每次调用 makeFun 返回的都是新的内含一个参数 "1"的不可变的 ArrayList
+        // 每次返回的都是一个新生成的不可变 List
         final List<Integer> list = new ArrayList<>();
         list.add(1);
         return () -> list;

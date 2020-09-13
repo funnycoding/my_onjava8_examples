@@ -1,5 +1,6 @@
 package functional;
 
+import java.util.StringJoiner;
 import java.util.function.DoubleFunction;
 import java.util.function.DoubleToIntFunction;
 import java.util.function.DoubleToLongFunction;
@@ -21,9 +22,14 @@ import java.util.function.ToLongFunction;
  * @date 2020/2/18 12:59 上午
  */
 
-// FunctionVariants.java
 // 一个使用内置函数式接口进行各种基础操作的例子
+// FunctionVariants.java
 class Foo {
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Foo.class.getSimpleName() + "[", "]")
+                .toString();
+    }
 }
 
 class Bar {
@@ -32,6 +38,13 @@ class Bar {
 
     public Bar(Foo f) {
         this.f = f;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Bar.class.getSimpleName() + "[", "]")
+                .add("f=" + f)
+                .toString();
     }
 }
 
@@ -78,8 +91,10 @@ public class FunctionVariants {
     static DoubleToLongFunction f13 = d -> (long) d; // double 转 long，强转
 
     public static void main(String[] args) {
+
         // Function 的 apply() 函数就是 根据入参生成出参两种类型变量。 这里就是根据 Foo对象构造 Bar对象
-        Bar b = f1.apply(new Foo());
+        Bar b = f1.apply(new Foo()); // 使用 Foo() 作为材料生成一个 Bar 对象
+        System.out.println(b);
         // 对象的构建，根据对应的入参
         IBaz ib = f2.apply(11);
         LBaz lb = f3.apply(11);

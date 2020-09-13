@@ -15,7 +15,7 @@ interface MyFunction extends Function<String, String> {
 } // [1]
 
 public class ProduceFunction {
-    // 高阶函数，返回了将入参字符串转为小写这个动作
+    // 相当于返回了一个匿名类对象，该实例重写了 apply() 方法，行为是将传入的字符串转为小写
     static MyFunction produce() {
         return s -> s.toLowerCase(); // [2]
     }

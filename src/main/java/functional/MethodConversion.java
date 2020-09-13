@@ -10,7 +10,6 @@ import java.util.function.BiConsumer;
  */
 
 // MethodConversion.java
-
 class In1 {}
 
 class In2 {}

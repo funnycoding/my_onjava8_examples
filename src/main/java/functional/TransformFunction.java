@@ -11,13 +11,10 @@ import java.util.function.Function;
 
 // TransformFunction.java
 class I {
-    @Override
-    public String toString() {
-        return "IIII";
-    }
 }
 
 class O {
+    // 构造 O 对象时输出该语句
     public O() {
         System.out.println("O的构造函数被调用了");
     }
@@ -54,7 +51,7 @@ public class TransformFunction {
         System.out.println("transform 被调用了");
         return in.andThen(o -> {
             System.out.println("transform 被调用才进来的");
-            System.out.println("当前对象："+o + "apply()");
+            System.out.println("当前对象：" + o + "apply()");
             return o;
         });
     }
@@ -62,14 +59,18 @@ public class TransformFunction {
 
     public static void main(String[] args) {
         System.out.println("第一个方法引用:myApply");
-        Function<I, O> ioFunction = // 这里使用我自己实现的 apply方法赋值给 Function
-                TransformFunction::myApply;
+        // 方法引用赋值
+        Function<I, O> ioFunction = TransformFunction::myApply;
+
         System.out.println("开始调用 transform(), 入参是一个 Lambda 表达式， 该表达式的入参是 i，输出i，返回 O");
-        Function<I,O> f2 = transform(i -> {
+        Function<I, O> f2 = transform(i -> {
+            // 先打印入参 i
             System.out.println(i);
+            // 构造类 O 实例
             return new O();
         });
-        f2.apply(new I());
+        System.out.println("----------- f2. apply(new I())----------- ");
+        O apply = f2.apply(new I()); // 调用方法引用生成对象O
         System.out.println("transform 调用结束");
 
         System.out.println("开始调用 iOFunction 的 apply()"); // 这里实际调用的是我下面定义的 myApply()函数
@@ -77,14 +78,15 @@ public class TransformFunction {
         System.out.println("-------------");
     }
 
+    // 入参是 I返回值是 O 符合 Function 接口
     private static O myApply(I i) {
         System.out.println("这里是打印i的上一行");
-        System.out.println("打印I: " + i );
+        System.out.println("打印I: " + i);
         System.out.println("这里是return O 的上一行");
         // 为什么这个返回这个对象 或者说调用 O 的构造函数，toString 方法被调用了
         System.out.println("开始构造 O 对象");
         O o = new O();
-        System.out.println("打印O对象 "+o);
+        System.out.println("打印O对象 " + o);
         return o;
     }
 }

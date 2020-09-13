@@ -52,5 +52,7 @@ public class FunctionalAnnotation {
         // 使用 Lambda形式实现 Function接口的函数 这里编译器会自动推导出返回值为 String类型
         Functional fl = a -> "GoodBye Lambda," + a;
         Functional fnal = a -> "GoodBye Lambda With No Annotation," + a;
+        System.out.println(fl.goodbye("fl方法被调用"));
+        System.out.println(fnal.goodbye("fnal方法被调用"));
     }
 }

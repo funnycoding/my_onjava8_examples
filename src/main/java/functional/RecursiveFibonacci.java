@@ -39,8 +39,7 @@ public class RecursiveFibonacci {
     public static void main(String[] args) {
         RecursiveFibonacci rf = new RecursiveFibonacci();
         for (int i = 0; i <= 10; i++) {
-            System.out.println(rf.generatorFibonacci(i));
-            //System.out.println(rf.fib.call(i)); // 效果和 rf.generatorFibonacci(i) 一样
+            System.out.println("10以内的斐波那契数列，i = " + i+", 结果: " + rf.generatorFibonacci(i));
         }
     }
 }

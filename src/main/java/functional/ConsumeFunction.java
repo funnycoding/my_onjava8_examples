@@ -1,5 +1,6 @@
 package functional;
 
+import java.util.StringJoiner;
 import java.util.function.Function;
 
 /**
@@ -14,6 +15,14 @@ class One {
 }
 
 class Two {
+    static int i = 0;
+    final int counter = i++;
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Two.class.getSimpleName() + "[", "]")
+                .add("counter=" + counter)
+                .toString();
+    }
 }
 
 // 我自己又加了个根据方法引用生成 Two 的
@@ -41,9 +50,12 @@ public class ConsumeFunction {
         System.out.println("使用 Consume 生成的对象：" + consume);
 
         Two two = consume(one -> new Two());
+
         System.out.println("将Lambda表达式传入 consume 生成的对象: " + two);
 
         // 把 Three类的test方法赋值给 Function，传入consume，也可以生成 Two 对象
         Two three = consume(Three::test);
+        System.out.println("consume() + 方法引用赋值生成的 Two对象: " + three);
+
     }
 }
