@@ -5,7 +5,7 @@
 
 
 
-[1.对象的概念](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/1.%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A6%82%E5%BF%B5.md)
+[1.对象的概念（重构版）](http://xuyanxin.top/archives/onjava8-01)
 
 [3.万物皆对象](https://github.com/funnycoding/my_onjava8_examples/blob/master/docs/3.%E4%B8%87%E7%89%A9%E7%9A%86%E5%AF%B9%E8%B1%A1.md)
 
