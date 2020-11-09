@@ -6,6 +6,7 @@
 
 
 [1.对象的概念（重构版）](http://xuyanxin.top/archives/onjava8-01)
+
 [2.安装Java与本书用例（重构版）](http://xuyanxin.top/archives/onjava8-2)
 
 [3.万物皆对象（重构版）](http://xuyanxin.top/archives/onjava8-3)
